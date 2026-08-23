@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hopi Hari — 29 de agosto</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0e10;
+    --surface: #18181c;
+    --surface-2: #222228;
+    --border: #2e2e36;
+    --text: #f0eff4;
+    --muted: #7c7b88;
+    --accent: #e8441a;
+    --accent-dim: rgba(232,68,26,0.12);
+
+    --west: #c47c1a;
+    --west-bg: rgba(196,124,26,0.1);
+    --arib: #1a9e6a;
+    --arib-bg: rgba(26,158,106,0.1);
+    --mist: #9b44d4;
+    --mist-bg: rgba(155,68,212,0.1);
+    --noite: #d44466;
+    --noite-bg: rgba(212,68,102,0.1);
+
+    --tag-radical-bg: rgba(232,68,26,0.15);
+    --tag-radical-fg: #f07050;
+    --tag-agua-bg: rgba(26,120,212,0.15);
+    --tag-agua-fg: #5ea8f0;
+    --tag-familia-bg: rgba(26,158,106,0.15);
+    --tag-familia-fg: #4ecfa0;
+    --tag-pausa-bg: rgba(120,118,140,0.15);
+    --tag-pausa-fg: #a0a0b8;
+    --tag-show-bg: rgba(155,68,212,0.15);
+    --tag-show-fg: #c080f0;
+    --tag-horror-bg: rgba(212,68,102,0.15);
+    --tag-horror-fg: #f080a0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    padding: 2.5rem 1.25rem 1.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .header-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ── Progress bar ── */
+  .progress-wrap {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    padding: 0 1.25rem;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: var(--surface-2);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 99px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* ── Tip box ── */
+  .tip-box {
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .tip-inner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .tip-inner strong { color: var(--text); font-weight: 500; }
+
+  /* ── Zone / Section ── */
+  .zone {
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .zone-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .zone-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .zone-header .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .zone-header .badge {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 9px;
+    border-radius: 99px;
+    background: rgba(255,255,255,0.06);
+    color: var(--muted);
+  }
+
+  .zone-west .zone-header { background: var(--west-bg); color: var(--west); }
+  .zone-west .dot { background: var(--west); }
+  .zone-arib .zone-header { background: var(--arib-bg); color: var(--arib); }
+  .zone-arib .dot { background: var(--arib); }
+  .zone-mist .zone-header { background: var(--mist-bg); color: var(--mist); }
+  .zone-mist .dot { background: var(--mist); }
+  .zone-noite .zone-header { background: var(--noite-bg); color: var(--noite); }
+  .zone-noite .dot { background: var(--noite); }
+
+  /* ── Item ── */
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 13px 16px;
+    border-top: 1px solid var(--border);
+    transition: background 0.15s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .item:hover { background: rgba(255,255,255,0.025); }
+  .item:active { background: rgba(255,255,255,0.04); }
+
+  .item.done { opacity: 0.45; }
+  .item.done .item-name { text-decoration: line-through; color: var(--muted); }
+
+  /* Custom checkbox */
+  .cb-wrap {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cb-wrap input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface-2);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+  }
+
+  .cb-wrap input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .cb-wrap input[type="checkbox"]::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translate(-1px, -1px);
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  .cb-wrap input[type="checkbox"]:checked::after { opacity: 1; }
+
+  /* Item body */
+  .item-body { flex: 1; min-width: 0; }
+
+  .item-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 3px;
+    transition: color 0.2s;
+  }
+
+  .item-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 5px;
+  }
+
+  .item-hours {
+    font-size: 11px;
+    color: var(--muted);
+    opacity: 0.7;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .item-hours svg {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 99px;
+  }
+
+  .tag-radical { background: var(--tag-radical-bg); color: var(--tag-radical-fg); }
+  .tag-agua    { background: var(--tag-agua-bg);    color: var(--tag-agua-fg); }
+  .tag-familia { background: var(--tag-familia-bg); color: var(--tag-familia-fg); }
+  .tag-pausa   { background: var(--tag-pausa-bg);   color: var(--tag-pausa-fg); }
+  .tag-show    { background: var(--tag-show-bg);    color: var(--tag-show-fg); }
+  .tag-horror  { background: var(--tag-horror-bg);  color: var(--tag-horror-fg); }
+  .tag-extra   { background: rgba(255,255,255,0.05); color: var(--muted); }
+
+  /* ── Footer dicas ── */
+  .dicas {
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    padding: 0 1.25rem;
+  }
+
+  .dicas-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .dica-item {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 7px;
+  }
+
+  .dica-item::before {
+    content: '→';
+    color: var(--accent);
+    flex-shrink: 0;
+    font-size: 12px;
+    margin-top: 1px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .progress-fill { transition: none; }
+    .item { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">Roteiro do dia</div>
+  <h1>Hopi Hari</h1>
+  <div class="header-sub">Sábado, 29 de agosto · Saída de São João às 08:00/08:30</div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span>Progresso</span>
+    <span id="progress-text">0 de 22</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+</div>
+
+<div class="tip-box">
+  <div class="tip-inner">
+    <strong>Antes de entrar:</strong> a loja do VIP Pass fica ao lado da Giranda Mundi, em Kaminda Mundi — logo na entrada do parque. Comprem assim que chegar, antes de ir para qualquer brinquedo.
+  </div>
+</div>
+
+<!-- WILD WEST -->
+<div class="zone zone-west">
+  <div class="zone-card">
+    <div class="zone-header">
+      <span class="dot"></span>
+      Wild West
+      <span class="badge">1ª parada</span>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Chegada ao parque</div>
+        <div class="item-desc">Comprar o VIP Pass na loja (ao lado da Giranda Mundi) e ir direto para o Wild West enquanto as filas ainda são curtas.</div>
+        <div class="tags"><span class="tag tag-pausa">pausa</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Evolution</div>
+        <div class="item-desc">Pêndulo gigante que gira 360° e leva os visitantes a 18 metros de altura. Feito antes dos brinquedos de água para não entrar molhado.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:00 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-radical">radical</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Rio Bravo</div>
+        <div class="item-desc">600m de corredeiras em botes redondos com cachoeiras e jatos d'água. Vai molhar muito — leve saco plástico para proteger o celular.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:15 · Fecha às 18:00
+        </div>
+        <div class="tags"><span class="tag tag-agua">água</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Splesh</div>
+        <div class="item-desc">Passeio dentro de um tronco de madeira que termina com uma grande descida e uma onda que encharca todo mundo.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:30 · Fecha às 16:30
+        </div>
+        <div class="tags"><span class="tag tag-agua">água</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Trocar de roupa</div>
+        <div class="item-desc">Usar os vestiários do parque antes de seguir para as próximas atrações — roupa para os brinquedos secos já em mãos.</div>
+        <div class="tags"><span class="tag tag-pausa">pausa</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARIBABIBA -->
+<div class="zone zone-arib">
+  <div class="zone-card">
+    <div class="zone-header">
+      <span class="dot"></span>
+      Aribabiba
+      <span class="badge">almoço + brinquedos</span>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Parangolé</div>
+        <div class="item-desc">Cadeiras suspensas por cabos que "voam" em alta altitude com as pernas livres. Sensação de voo panorâmico sobre a região do lago.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:15 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-familia">familiar</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Katapul</div>
+        <div class="item-desc">A única montanha-russa de lançamento do Brasil. Sai de 0 a 86 km/h em apenas 3 segundos, passa por um looping completo e repete todo o trajeto de ré.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 12:30 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-radical">radical</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Almoço — Aribabiba</div>
+        <div class="item-desc">1 hora de pausa no restaurante da região — tempo de preparo, refeição e descanso antes de voltar à programação.</div>
+        <div class="tags"><span class="tag tag-pausa">almoço</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Jambalaia</div>
+        <div class="item-desc">Duas gôndolas que giram 360° em torno de um eixo central, sempre paralelas ao chão. Sobem devagar e descem com velocidade.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:15 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-familia">familiar</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Vambatê</div>
+        <div class="item-desc">Carros bate-bate clássicos — descanso divertido antes de partir para o Mistieri com os radicais pesados.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:15 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-familia">familiar</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MISTIERI -->
+<div class="zone zone-mist">
+  <div class="zone-card">
+    <div class="zone-header">
+      <span class="dot"></span>
+      Mistieri
+      <span class="badge">3ª parada</span>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Vurang</div>
+        <div class="item-desc">Montanha-russa no escuro que percorre o interior de uma pirâmide. Os carrinhos giram no próprio eixo durante todo o trajeto — sem enxergar o caminho, é impossível antecipar o que vem.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:00 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-radical">radical</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Vulaviking</div>
+        <div class="item-desc">Grande navio viking que balança progressivamente até atingir quase 90° em relação ao chão, em meio ao cenário de civilizações perdidas do Mistieri.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:00 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-familia">familiar</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Montezum</div>
+        <div class="item-desc">A maior montanha-russa de madeira da América Latina, com mais de 100 km/h e queda de 42 metros. A estrutura de madeira intensifica as vibrações — uma das experiências mais radicais do parque.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:45 · Fecha às 18:00
+        </div>
+        <div class="tags"><span class="tag tag-radical">radical</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Ekatomb</div>
+        <div class="item-desc">Plataforma giratória que leva os passageiros de cabeça para baixo de formas diferentes e imprevisíveis a cada giro. Altura mínima: 1,40m.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:00 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-radical">radical</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Katakumb <span style="font-size:11px;font-weight:400;opacity:0.6">(extra opcional)</span></div>
+        <div class="item-desc">Percurso a pé por dentro de um templo egípcio com efeitos especiais e cenário imersivo. Boa pedida para descansar as pernas após os radicais.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 14:15 · Fecha às 18:45
+        </div>
+        <div class="tags"><span class="tag tag-familia">familiar</span><span class="tag tag-extra">opcional</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Giranda Mundi <span style="font-size:11px;font-weight:400;opacity:0.6">(extra opcional)</span></div>
+        <div class="item-desc">Roda-gigante de 40 metros em Kaminda Mundi com visão panorâmica de todo o parque, da mata atlântica e do lago. Voltas lentas — ótima para descansar antes da noite.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 11:00 · Fecha às 19:00
+        </div>
+        <div class="tags"><span class="tag tag-familia">familiar</span><span class="tag tag-extra">opcional</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Aero Venture</div>
+        <div class="item-desc">Voo panorâmico suspenso que dá uma volta completa com vista de todo o parque. Última atração do percurso de brinquedos — atenção ao horário de encerramento.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          Abre às 12:30 · Fecha às 18:00
+        </div>
+        <div class="tags"><span class="tag tag-familia">familiar</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE DA NOITE -->
+<div class="zone zone-noite">
+  <div class="zone-card">
+    <div class="zone-header">
+      <span class="dot"></span>
+      Parte da noite
+      <span class="badge">encerramento</span>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Túnel 1 — Infantasia</div>
+        <div class="item-desc">Primeiro túnel do horror, localizado na região do Infantasia. Ponto de partida do percurso noturno.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          18:00 às 20:00
+        </div>
+        <div class="tags"><span class="tag tag-horror">horror</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Túnel 2 — Aribabiba</div>
+        <div class="item-desc">Segundo túnel do horror, localizado na região do Aribabiba. Segue o percurso do Infantasia.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          18:00 às 20:00
+        </div>
+        <div class="tags"><span class="tag tag-horror">horror</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Túnel 3 — Mistieri</div>
+        <div class="item-desc">Terceiro e último túnel do horror, localizado na região do Mistieri. Encerra o percurso dos túneis antes de voltar ao Infantasia.</div>
+        <div class="item-hours">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 2"/></svg>
+          18:00 às 20:00
+        </div>
+        <div class="tags"><span class="tag tag-horror">horror</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">Retorno ao Infantasia</div>
+        <div class="item-desc">Volta para a região do Infantasia, onde acontece o show do Caveirão.</div>
+        <div class="tags"><span class="tag tag-pausa">deslocamento</span></div>
+      </div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="cb-wrap"><input type="checkbox" onclick="event.stopPropagation()"></div>
+      <div class="item-body">
+        <div class="item-name">O Caveirão Chegou!</div>
+        <div class="item-desc">Show de encerramento no Infantasia. Confirmar o horário exato no dia pelo app ou nas placas do parque.</div>
+        <div class="tags"><span class="tag tag-show">show</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DICAS -->
+<div class="dicas">
+  <div class="dicas-title">Dicas para o dia</div>
+  <div class="dica-item">Chegue às 10h30 para garantir os primeiros na fila da bilheteria e do VIP Pass antes do parque abrir às 11h.</div>
+  <div class="dica-item">O Evolution vem antes dos brinquedos de água — entra seco, sai molhado, e já troca antes de ir ao Aribabiba.</div>
+  <div class="dica-item">Montezum de tarde: a maioria corre pra lá ao abrir às 11h45 — espere e a fila diminui bastante.</div>
+  <div class="dica-item">Leve saco plástico para proteger o celular no Rio Bravo e no Splesh.</div>
+  <div class="dica-item">Os horários são estimativas — as filas variam dependendo do movimento do sábado.</div>
+</div>
+
+<script>
+  const TOTAL = document.querySelectorAll('.item').length;
+
+  function toggle(item) {
+    const cb = item.querySelector('input[type="checkbox"]');
+    cb.checked = !cb.checked;
+    item.classList.toggle('done', cb.checked);
+    updateProgress();
+    saveState();
+  }
+
+  function updateProgress() {
+    const done = document.querySelectorAll('.item.done').length;
+    const pct = TOTAL > 0 ? Math.round((done / TOTAL) * 100) : 0;
+    document.getElementById('progress-text').textContent = done + ' de ' + TOTAL;
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  function saveState() {
+    const states = [];
+    document.querySelectorAll('.item input[type="checkbox"]').forEach(cb => {
+      states.push(cb.checked);
+    });
+    try { localStorage.setItem('hopi-hari-v1', JSON.stringify(states)); } catch(e) {}
+  }
+
+  function loadState() {
+    try {
+      const saved = JSON.parse(localStorage.getItem('hopi-hari-v1') || '[]');
+      document.querySelectorAll('.item').forEach((item, i) => {
+        if (saved[i]) {
+          item.querySelector('input[type="checkbox"]').checked = true;
+          item.classList.add('done');
+        }
+      });
+    } catch(e) {}
+    updateProgress();
+  }
+
+  document.querySelectorAll('.item input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const item = this.closest('.item');
+      item.classList.toggle('done', this.checked);
+      updateProgress();
+      saveState();
+    });
+  });
+
+  loadState();
+</script>
+</body>
+</html>
